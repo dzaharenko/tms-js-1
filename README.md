@@ -15,3 +15,7 @@
 ### lesson 4 (Введение в функции)
 - [classwork](lesson-4/classwork.md)
 - [homework](lesson-4/homework.md)
+
+### lesson 5 (Функции: LevelUp)
+- [lecture + links](https://slides.com/andrewbogomolov/functions-levelup)
+- [homework](lesson-5/homework.md)
