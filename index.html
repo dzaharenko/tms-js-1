@@ -12,19 +12,38 @@
       margin: 0 auto;
     }
 
-    .result {
-      padding-top: 20px;
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      margin: 0 -5px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: gray;
+      border: 1px solid gray;
+      width: 20px;
+      height: 20px;
+      margin: 5px;
+      border-radius: 3px;
+    }
+
+    .active {
+      color: black;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <form id="form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name">
-      <button>Send</button>
-    </form>
-    <div class="result" id="result"></div>
+    <div class="buttons">
+      <a href="#" id="bold">B</a>
+      <a href="#" id="italic">I</a>
+      <a href="#" id="underline">U</a>
+    </div>
+    <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci commodi doloribus earum eius et natus officia recusandae voluptates. Aperiam blanditiis dolorum, earum excepturi laborum nemo nobis pariatur, praesentium quam reiciendis rem soluta vitae? Accusantium ad architecto asperiores, assumenda debitis, deserunt dolor earum, facilis incidunt libero nemo nihil sunt! Ab dolorem ea eos eveniet fuga fugiat harum incidunt laboriosam minus modi nesciunt, non officiis, quam quidem saepe, tempore ut! Adipisci commodi, cupiditate, enim, fugit in iste iusto libero minima molestiae nihil perspiciatis quidem quod tempora ut vitae? Culpa dicta est eum illum, impedit, ipsa ipsam, necessitatibus quas quibusdam quod repellat vero.</p>
   </div>
 </body>
 <script src="main.js"></script>

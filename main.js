@@ -1,18 +1,115 @@
-const input = document.getElementById('name');
-const form = document.getElementById('form');
-const result = document.getElementById('result');
+const bold = document.getElementById('bold');
+const italic = document.getElementById('italic');
+const underline = document.getElementById('underline');
+const text = document.getElementById('text');
 
-input.addEventListener('keypress', function(event) {
-  if (event.key.length === 1) {
-    console.log(event.target.value + event.key);
-  }
-});
-
-form.addEventListener('submit', function(event) {
+const changeStyle = (key, value) => event => {
   event.preventDefault();
-  const inputField = document.getElementById('name');
-  result.innerHTML = `<b>${inputField.value}</b>`;
-});
+
+  text.style.fontStyle = '';
+  text.style.textDecoration = '';
+  text.style.fontWeight = '';
+
+  text.style[key] = value;
+
+  bold.classList.remove('active');
+  italic.classList.remove('active');
+  underline.classList.remove('active');
+
+  event.target.classList.add('active');
+};
+
+const makeBold = changeStyle('fontWeight', 'bold');
+const makeItalic = changeStyle('fontStyle', 'italic');
+const makeUnderline = changeStyle('textDecoration', 'underline');
+
+bold.addEventListener('click', makeBold);
+italic.addEventListener('click', makeItalic);
+underline.addEventListener('click', makeUnderline);
+
+
+// const object = {
+//   a1: {
+//     b1: 1,
+//     b2: {
+//       c1: 2,
+//       c2: 4,
+//     }
+//   },
+//   a2: 5,
+//   a3: {
+//     b1: 6,
+//     b2: 7,
+//   }
+// };
+//
+// const recursive = obj => {
+//   const objKeys = Object.keys(obj);
+//
+//   for (let i = 0; i < objKeys.length; i++) {
+//     const key = objKeys[i];
+//     const value = obj[key];
+//
+//     if (typeof value === 'object') {
+//       recursive(value);
+//     } else {
+//       console.log(key, value);
+//     }
+//   }
+// };
+//
+// recursive(object);
+
+// const users = [
+//   { firstName: 'John', lastName: 'Smith' },
+//   { firstName: 'Todd', lastName: 'Lee' },
+//   { firstName: 'Taylor', lastName: 'Fox' },
+// ];
+//
+// for (let i = 0; i < users.length; i++) {
+//   var user = users[i];
+//
+//   user.getFullName = (function(firstName, lastName) {
+//     return function() {
+//       return `${firstName} ${lastName}`;
+//     }
+//   })(user.firstName, user.lastName);
+// }
+//
+// console.log(users[0].getFullName()); // 'John Smith'
+// console.log(users[1].getFullName()); // 'Todd Lee'
+// console.log(users[2].getFullName()); // 'Taylor Fox'
+
+
+// const func = x => {
+//   let y = 2 + x;
+//
+//   return (z = 2) => y * z;
+// };
+//
+// const func6 = func(4);
+// const func8 = func(6);
+// const func10 = func(8);
+//
+// console.log(func6());
+// console.log(func8());
+// console.log(func10(10));
+
+// const input = document.getElementById('name');
+// const form = document.getElementById('form');
+// const result = document.getElementById('result');
+//
+// input.addEventListener('keypress', function(event) {
+//   if (event.key.length === 1) {
+//     console.log(event.target.value + event.key);
+//   }
+// });
+//
+// form.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   const inputField = document.getElementById('name');
+//   result.innerHTML = `<b>${inputField.value}</b>`;
+// });
 
 // data[i].name;
 
