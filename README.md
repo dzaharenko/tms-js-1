@@ -1,5 +1,7 @@
 # tms-js
 
+[Видео занятий](https://drive.google.com/open?id=1E-L9hinITTQ7H1wZj-xyU1l0WGmsDJ1C)
+
 ### lesson 1
 - [lecture + homework](https://slides.com/danielsuleiman/git#/)
 
