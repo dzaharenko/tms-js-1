@@ -19,3 +19,8 @@
 ### lesson 5 (Функции: LevelUp)
 - [lecture + links](https://slides.com/andrewbogomolov/functions-levelup)
 - [homework](lesson-5/homework.md)
+
+### lesson 6 (Объекты и массивы. Часть 1)
+- [lecture + links](https://slides.com/andrewbogomolov/iterators)
+- [quiz](https://www.kahoot.it)
+- [homework](lesson-6/homework.md)
