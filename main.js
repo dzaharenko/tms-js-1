@@ -1,31 +1,38 @@
-const bold = document.getElementById('bold');
-const italic = document.getElementById('italic');
-const underline = document.getElementById('underline');
-const text = document.getElementById('text');
+const root = document.getElementById('root');
+const newDiv1 = document.createElement('div');
+const newDiv2 = document.createElement('div');
+const newDiv3 = document.createElement('div');
 
-const changeStyle = (key, value) => event => {
-  event.preventDefault();
+root.appendChild(newDiv1);
+root.appendChild(newDiv2);
+root.appendChild(newDiv3);
 
-  text.style.fontStyle = '';
-  text.style.textDecoration = '';
-  text.style.fontWeight = '';
+root.insertBefore(newDiv2, newDiv1);
 
-  text.style[key] = value;
+newDiv1.innerHTML = `
+  <p>Lorem ipsum dolor sit amet.</p>
+`;
 
-  bold.classList.remove('active');
-  italic.classList.remove('active');
-  underline.classList.remove('active');
+newDiv2.textContent = 'Lorem ipsum!';
 
-  event.target.classList.add('active');
-};
+newDiv3.textContent = 'Lorem ipsum!!!!';
 
-const makeBold = changeStyle('fontWeight', 'bold');
-const makeItalic = changeStyle('fontStyle', 'italic');
-const makeUnderline = changeStyle('textDecoration', 'underline');
+newDiv1.classList.add('class1');
+newDiv1.classList.add('class2');
+newDiv1.classList.add('class3');
 
-bold.addEventListener('click', makeBold);
-italic.addEventListener('click', makeItalic);
-underline.addEventListener('click', makeUnderline);
+newDiv1.classList.replace('class2', 'class4');
+
+newDiv1.dataset.id = '123';
+
+newDiv1.style.margin = '5px';
+
+const compute = getComputedStyle(newDiv1);
+
+newDiv1.style.marginTop = `calc(${compute.marginTop} + 5px)`;
+
+
+
 
 
 // const object = {
