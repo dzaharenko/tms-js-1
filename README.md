@@ -30,3 +30,7 @@
 ### lesson 7 (DOM)
 - [lecture + links](https://slides.com/andrewbogomolov/dom)
 - [homework](lesson-7/homework.md)
+
+### lesson 8 (Events)
+- [lecture + links](https://slides.com/andrewbogomolov/events)
+- [homework](lesson-8/homework.md)
