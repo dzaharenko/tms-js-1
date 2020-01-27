@@ -34,3 +34,7 @@
 ### lesson 8 (Events)
 - [lecture + links](https://slides.com/andrewbogomolov/events)
 - [homework](lesson-8/homework.md)
+
+### lesson 9 (BOM)
+- [lecture + links](https://slides.com/andrewbogomolov/bom)
+- [homework](lesson-9/homework.md)
