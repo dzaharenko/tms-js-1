@@ -1,14 +1,33 @@
 const div0 = document.getElementById('div0');
 const div1 = document.getElementById('div1');
 const div2 = document.getElementById('div2');
+const text = document.getElementById('text');
 
-div0.addEventListener('click', function(event) {
-  event.stopImmediatePropagation();
-  console.log(this.id);
+const setData = () => {
+  text.textContent = history.state.page;
+  sessionStorage.setItem('page', JSON.stringify({ currentPage: history.state.page }));
+  localStorage.page = JSON.stringify({ currentPage: history.state.page });
+};
+
+// if (history.state && history.state.page) {
+//   setData();
+// } else {
+//   text.textContent = 'homepage';
+// }
+
+div0.addEventListener('click', () => {
+  history.pushState({ page: 'page1' }, 'new', '?page=page1');
+  setData();
 });
 
-div0.addEventListener('click', function(event) {
-  console.log(this.id);
+div1.addEventListener('click', () => {
+  history.pushState({ page: 'page2' }, 'new', '?page=page2');
+  setData();
+});
+
+div2.addEventListener('click', () => {
+  history.pushState({ page: 'page3' }, 'new', '?page=page3');
+  setData();
 });
 
 // const root = document.getElementById('root');
