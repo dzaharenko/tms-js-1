@@ -38,3 +38,7 @@
 ### lesson 9 (BOM)
 - [lecture + links](https://slides.com/andrewbogomolov/bom)
 - [homework](lesson-9/homework.md)
+
+### lesson 10 (Async)
+- [lecture + links](https://sulemanof.github.io/js-lectures/async-development/presentation/#/)
+- [homework](lesson-10/homework.md)
