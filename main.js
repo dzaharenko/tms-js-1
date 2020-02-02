@@ -1,13 +1,61 @@
-const div0 = document.getElementById('div0');
-const div1 = document.getElementById('div1');
-const div2 = document.getElementById('div2');
-const text = document.getElementById('text');
 
-const setData = () => {
-  text.textContent = history.state.page;
-  sessionStorage.setItem('page', JSON.stringify({ currentPage: history.state.page }));
-  localStorage.page = JSON.stringify({ currentPage: history.state.page });
+const asyncFunc = async () => {
+  const promiseTimeout = new Promise((resolve, reject) => {
+    try {
+      setTimeout(() => {
+        resolve('timeout');
+      }, 1000);
+    } catch (err) {
+      reject(err);
+    }
+  });
+
+  const promiseInterval = new Promise((resolve, reject) => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      if (i > 5) {
+        clearInterval(interval);
+        resolve('interval');
+      } else {
+        console.log(i);
+      }
+    }, 1000);
+  });
+
+  const fetchResult = await fetch('http://www.nbrb.by/api/exrates/rates/usd?parammode=2')
+    .then(response => response.json())
+    .then(data => data)
+    .catch(err => err.message);
+
+  const [timeoutResult, intervalResult, usdRate] = await Promise.all([
+    promiseTimeout,
+    promiseInterval,
+    fetchResult,
+  ]);
+
+  console.log(timeoutResult);
+  console.log(intervalResult);
+  console.log(usdRate);
+
+  console.log('without timeout');
+
+
 };
+
+asyncFunc();
+
+
+// const div0 = document.getElementById('div0');
+// const div1 = document.getElementById('div1');
+// const div2 = document.getElementById('div2');
+// const text = document.getElementById('text');
+//
+// const setData = () => {
+//   text.textContent = history.state.page;
+//   sessionStorage.setItem('page', JSON.stringify({ currentPage: history.state.page }));
+//   localStorage.page = JSON.stringify({ currentPage: history.state.page });
+// };
 
 // if (history.state && history.state.page) {
 //   setData();
@@ -15,20 +63,20 @@ const setData = () => {
 //   text.textContent = 'homepage';
 // }
 
-div0.addEventListener('click', () => {
-  history.pushState({ page: 'page1' }, 'new', '?page=page1');
-  setData();
-});
-
-div1.addEventListener('click', () => {
-  history.pushState({ page: 'page2' }, 'new', '?page=page2');
-  setData();
-});
-
-div2.addEventListener('click', () => {
-  history.pushState({ page: 'page3' }, 'new', '?page=page3');
-  setData();
-});
+// div0.addEventListener('click', () => {
+//   history.pushState({ page: 'page1' }, 'new', '?page=page1');
+//   setData();
+// });
+//
+// div1.addEventListener('click', () => {
+//   history.pushState({ page: 'page2' }, 'new', '?page=page2');
+//   setData();
+// });
+//
+// div2.addEventListener('click', () => {
+//   history.pushState({ page: 'page3' }, 'new', '?page=page3');
+//   setData();
+// });
 
 // const root = document.getElementById('root');
 // const newDiv1 = document.createElement('div');
