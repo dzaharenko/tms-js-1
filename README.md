@@ -42,3 +42,6 @@
 ### lesson 10 (Async)
 - [lecture + links](https://sulemanof.github.io/js-lectures/async-development/presentation/#/)
 - [homework](lesson-10/homework.md)
+
+### lesson 11 (OOP)
+- [lecture + links](https://slides.com/andrewbogomolov/opp)
