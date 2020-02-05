@@ -45,3 +45,7 @@
 
 ### lesson 11 (OOP)
 - [lecture + links](https://slides.com/andrewbogomolov/opp)
+
+### lesson 12 (Classes)
+- [lecture + links](https://sulemanof.github.io/js-lectures/js-classes/presentation/#/)
+- [homework](lesson-12/homework.md)
