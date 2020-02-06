@@ -1,49 +1,125 @@
+class LegoMan {
+  constructor({ firstName, lastName, age = 0 }) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
 
-const asyncFunc = async () => {
-  const promiseTimeout = new Promise((resolve, reject) => {
-    try {
-      setTimeout(() => {
-        resolve('timeout');
-      }, 1000);
-    } catch (err) {
-      reject(err);
-    }
-  });
+  set newAge(value) {
+    const date = new Date();
 
-  const promiseInterval = new Promise((resolve, reject) => {
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      if (i > 5) {
-        clearInterval(interval);
-        resolve('interval');
-      } else {
-        console.log(i);
-      }
-    }, 1000);
-  });
+    this.age = value;
+    this.year = date.getFullYear() - value;
+  }
 
-  const fetchResult = await fetch('http://www.nbrb.by/api/exrates/rates/usd?parammode=2')
-    .then(response => response.json())
-    .then(data => data)
-    .catch(err => err.message);
+  get represent() {
+    return `My name is ${this.firstName}. I am ${this.age} years old.`;
+  }
 
-  const [timeoutResult, intervalResult, usdRate] = await Promise.all([
-    promiseTimeout,
-    promiseInterval,
-    fetchResult,
-  ]);
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
 
-  console.log(timeoutResult);
-  console.log(intervalResult);
-  console.log(usdRate);
+  static currentDate() {
+    return new Date();
+  }
 
-  console.log('without timeout');
+  say(message) {
+    console.log(`${this.fullName}: ${message}, ${LegoMan.currentDate()}`);
+  }
+}
+
+// const alex = new LegoMan({ firstName: 'Alex', lastName: 'Smith' });
+//
+// console.log(LegoMan[Symbol.hasInstance](alex));
+// console.log(alex instanceof LegoMan);
+//
+// console.log(alex instanceof Object);
+// console.log(alex instanceof Function);
+// console.log(alex instanceof Array);
+
+class LegoBatMan extends LegoMan {
+  constructor({ weight, ...props }) {
+    super(props);
+    this.weight = weight
+  }
+
+  say(message) {
+    console.log('|\\__/|');
+    super.say(message);
+    console.log('|\\__/|');
+  }
+}
+
+const batMan = new LegoBatMan({ firstName: 'Bat', lastName: 'Man', weight: 100 });
+console.log(batMan);
+batMan.say('Hi!');
 
 
-};
 
-asyncFunc();
+// console.log(LegoMan);
+// console.log(alex);
+// alex.newAge = 18;
+// alex.say('Hi!');
+//
+// const kattie = new LegoMan('Kattie');
+// kattie.say('No'); // Kattie: "No"
+//
+// console.log(kattie);
+
+// console.log(alex.hasOwnProperty('name'));
+// console.log(alex.hasOwnProperty('say'));
+
+// for (const key in alex) {
+//   console.log(key);
+// }
+
+//
+// const asyncFunc = async () => {
+//   const promiseTimeout = new Promise((resolve, reject) => {
+//     try {
+//       setTimeout(() => {
+//         resolve('timeout');
+//       }, 1000);
+//     } catch (err) {
+//       reject(err);
+//     }
+//   });
+//
+//   const promiseInterval = new Promise((resolve, reject) => {
+//     let i = 0;
+//     const interval = setInterval(() => {
+//       i++;
+//       if (i > 5) {
+//         clearInterval(interval);
+//         resolve('interval');
+//       } else {
+//         console.log(i);
+//       }
+//     }, 1000);
+//   });
+//
+//   const fetchResult = await fetch('http://www.nbrb.by/api/exrates/rates/usd?parammode=2')
+//     .then(response => response.json())
+//     .then(data => data)
+//     .catch(err => err.message);
+//
+//   const [timeoutResult, intervalResult, usdRate] = await Promise.all([
+//     promiseTimeout,
+//     promiseInterval,
+//     fetchResult,
+//   ]);
+//
+//   console.log(timeoutResult);
+//   console.log(intervalResult);
+//   console.log(usdRate);
+//
+//   console.log('without timeout');
+//
+//
+// };
+//
+// asyncFunc();
 
 
 // const div0 = document.getElementById('div0');
