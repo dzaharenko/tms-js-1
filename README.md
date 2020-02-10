@@ -49,3 +49,6 @@
 ### lesson 12 (Classes)
 - [lecture + links](https://sulemanof.github.io/js-lectures/js-classes/presentation/#/)
 - [homework](lesson-12/homework.md)
+
+### lesson 13 (Classes)
+- [homework](lesson-13/homework.md)
