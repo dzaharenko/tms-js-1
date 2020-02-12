@@ -10,6 +10,15 @@ body {
   line-height: 1.2;
 }
 
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+h3 {
+  font-weight: normal;
+}
+
 .container {
   max-width: 900px;
   margin: 0 auto;
@@ -113,9 +122,22 @@ body {
   color: #ffffff;
   background-color: #ff8b38;
   border-radius: 4px;
-  text-decoration: none;
 }
 
 .cart__button._active {
   background-color: #252525;
+}
+
+.products__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.products__sort {
+  font-weight: bold;
 }
