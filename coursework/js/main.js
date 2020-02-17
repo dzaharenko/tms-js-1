@@ -1,18 +1,28 @@
 (async function() {
   class Products {
     constructor({
-        products,
         textButton,
         textActiveButton,
         currentSortDirection,
         rootEl,
       }) {
-      this.defaultData = [...products];
-      this.currentData = [...products];
       this.textButton = textButton;
       this.textActiveButton = textActiveButton;
       this.currentSortDirection = currentSortDirection;
       this.rootEl = rootEl;
+    }
+
+    async getData() {
+      const products = await fetch('http://localhost:8000/api/catalog')
+        .then(response => response.json())
+        .then(data => data)
+        .catch(err => {
+          console.log(err);
+          return [];
+        });
+
+      this.defaultData = [...products];
+      this.currentData = [...products];
     }
 
     sort(event) {
@@ -89,25 +99,17 @@
     }
   }
 
-  const productsData = await fetch('http://localhost:8000/api/catalog')
-    .then(response => response.json())
-    .then(data => data)
-    .catch(err => {
-      console.log(err);
-      return [];
-    });
-
   const productsEl = document.getElementById('products');
   const sortEl = document.getElementById('sort');
   const searchEl = document.getElementById('search');
 
   const products = new Products({
-    products: productsData,
     textButton: 'Add to Basket',
     textActiveButton: 'Remove from Basket',
     currentSortDirection: 'asc',
     rootEl: productsEl,
   });
+  await products.getData();
 
   let currentBasket = [];
 
